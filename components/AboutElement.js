@@ -5,7 +5,7 @@ const AboutElement = ({ paragraph, imgSrc, imgAlt, classname }) => {
 
 	const cardVariants = {
 		offscreen: {
-			y: 350,
+			y: 370,
 		},
 		onscreen: {
 			y: 0,

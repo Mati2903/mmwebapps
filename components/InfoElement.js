@@ -5,10 +5,7 @@ import { useEffect, useRef } from "react";
 const InfoElement = ({ title, description, imgSrc, imgAlt }) => {
 	//============= animation with framer motion ===================
 	const ref = useRef(null);
-	const isInView = useInView(ref, {
-		amount: 0,
-		once: true,
-	}); //amount of element visible to fire animation
+	const isInView = useInView(ref, { amount: 0.7, once: true }); //amount of element visible to fire animation
 
 	const animationImage = useAnimation();
 	const animationText = useAnimation();
