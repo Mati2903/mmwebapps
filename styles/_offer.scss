@@ -1,0 +1,54 @@
+.offer-section {
+	&__image-container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.offer-section__image {
+			width: 80vw;
+		}
+	}
+	.offer-section__button-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 3rem;
+		.offer__contact-button {
+			font-size: 1.25rem;
+			font-family: "Montserrat";
+		}
+	}
+	&__description-container {
+		margin: 3rem auto;
+		width: 85vw;
+		p {
+			text-align: center;
+			line-height: 2rem;
+			margin-bottom: 1.5rem;
+			font-size: 1.2rem;
+		}
+	}
+}
+
+@media screen and (min-width: 460px) {
+	.offer-section {
+		&__image-container {
+			.offer-section__image {
+				width: 60vw;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.offer-section {
+		&__image-container {
+			.offer-section__image {
+				width: 40vw;
+			}
+		}
+		&__description-container {
+			width: 60vw;
+		}
+	}
+}

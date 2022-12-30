@@ -1,0 +1,11 @@
+.alert {
+	position: fixed;
+	bottom: 80%;
+	left: 50%;
+	transform: translateX(-50%);
+	overflow: hidden;
+	font-size: 1rem;
+	.MuiAlertTitle-root {
+		font-size: 1.2rem;
+	}
+}

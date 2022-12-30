@@ -1,0 +1,222 @@
+.nav {
+	position: relative;
+	width: 100%;
+	min-height: 70px;
+	padding: 0 1rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	z-index: 999;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-size: 1rem;
+	background-color: $navBgColor;
+	// after pseudo element jako linia oddzielająca otwarte menu navbara od contentu strony
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0%;
+		opacity: 0;
+		box-shadow: 0 0 1.5px 0.5px #444;
+
+		transition: width 0.5s ease-in-out, opacity 0.1s ease-in-out 0.4s;
+	}
+
+	&.active::after {
+		width: 66%;
+		opacity: 1;
+		box-shadow: 0 0 1.5px 0.5px #444;
+		transition: width 0.5s ease-in-out, opacity 0.1s ease-in-out;
+	}
+
+	//------------logo ------------------
+	&__logo {
+		font-family: "Oleo Script Swash Caps", cursive;
+		font-size: 1.4rem;
+		color: $navTextColor;
+		cursor: pointer;
+		position: absolute;
+		left: 1rem;
+		align-self: center;
+		transform: rotate(0);
+		transition: transform 0.4s linear, left 0.4s linear;
+
+		&.rotate {
+			transform: rotate(-90deg);
+			left: -1.5rem;
+		}
+	}
+	//--------menu list--------
+	.nav-menu {
+		height: 70px;
+		margin: 0 0 0 50%;
+		padding: 1.5rem 0;
+		transform: translateX(-50%); //center list
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		list-style: none;
+		text-transform: uppercase;
+		transition: height 0.4s linear;
+		li {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			margin-top: -100vh;
+			opacity: 0;
+			transition: opacity 0.4s linear, margin-top 0.5s linear;
+			a {
+				display: flex;
+				align-items: center;
+				height: 100%;
+				position: relative;
+				transition: 0.4s ease-in-out;
+
+				&::after {
+					content: "";
+					position: absolute;
+					margin-top: 40px;
+					margin-left: 50%; //to center after element with text
+					background-color: $navTextColor;
+					width: 0%;
+					border-radius: 2px;
+					height: 2px;
+					transform: translateX(-50%); //to draw element from center to sides
+					transition: width 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+				}
+				&:hover {
+					color: $navTextColor;
+					&::after {
+						width: 100%;
+					}
+				}
+				//--------underline when link is active
+				&.active {
+					color: $navTextColor;
+					&::after {
+						width: 100%;
+						box-shadow: 0 0 2.5px 1px $navTextColor;
+					}
+				}
+			}
+		}
+		&.open {
+			height: 300px;
+			li {
+				margin-top: 0;
+				opacity: 1;
+			}
+		}
+	}
+
+	//-------------------- hamburger icon (three lines) ------------------------
+
+	.hamburger {
+		width: 50px;
+		height: 50px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		cursor: pointer;
+		align-self: center;
+		.hamburger__icon {
+			transition-duration: 0.5s;
+			position: relative;
+			height: 4px;
+			width: 50px;
+			top: 23px;
+			right: 10px;
+			border-radius: 2px;
+			background-color: $hamburgerIconColor;
+			&::before {
+				transition-duration: 0.5s;
+				position: absolute;
+				height: 4px;
+				width: 50px;
+				top: -15px;
+				border-radius: 2px;
+				background-color: $hamburgerIconColor;
+				content: "";
+			}
+			&::after {
+				transition-duration: 0.5s;
+				position: absolute;
+				height: 4px;
+				width: 50px;
+				top: 15px;
+				border-radius: 2px;
+				background-color: $hamburgerIconColor;
+				content: "";
+			}
+		}
+	}
+
+	//hamburger icon "X"
+	.hamburger.open {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		.hamburger__icon {
+			transition-duration: 0.5s;
+			position: relative;
+			height: 4px;
+			width: 50px;
+			top: 23px;
+			right: 10px;
+			background-color: transparent;
+			border-radius: 2px;
+			// hamburger menu top and bottom elements
+			&::before {
+				transition-duration: 0.5s;
+				position: absolute;
+				height: 4px;
+				width: 50px;
+				top: -15px;
+				border-radius: 2px;
+				background-color: $hamburgerIconColor;
+				content: "";
+				transform: rotateZ(45deg) scaleX(1.25) translate(10px, 10px);
+			}
+			&::after {
+				transition-duration: 0.5s;
+				position: absolute;
+				height: 4px;
+				width: 50px;
+				top: 15px;
+				border-radius: 2px;
+				background-color: $hamburgerIconColor;
+				content: "";
+				transform: rotateZ(-45deg) scaleX(1.25) translate(9px, -9px);
+			}
+		}
+	}
+}
+
+//=========== tablet / desktop =======================
+
+@media screen and (min-width: 768px) {
+	.nav {
+		align-items: center;
+		justify-content: flex-end;
+
+		height: 60px;
+		&__logo {
+			left: 3rem;
+		}
+		.nav-menu {
+			flex-direction: row;
+			margin: 0 3rem 0 0;
+			transform: translateX(0);
+
+			li {
+				opacity: 1;
+				margin-top: 0;
+			}
+		}
+		.hamburger {
+			display: none;
+		}
+	}
+}

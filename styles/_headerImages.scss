@@ -1,0 +1,12 @@
+.header-image {
+	width: 100vw;
+	height: calc(100vh - 70px); //100vh minus the height of navbar
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// background: linear-gradient($navBgColor 0%, rgba(0, 0, 0, 0.3)),
+	// 	url("../public/computer.jpg");
+	// background-position: center; /* Center the image */
+	// background-repeat: no-repeat; /* Do not repeat the image */
+	// background-size: cover; /* Resize the background image to cover the entire container */
+}

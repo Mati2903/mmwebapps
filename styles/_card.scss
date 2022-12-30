@@ -1,0 +1,21 @@
+.card {
+	width: 280px;
+	height: 280px;
+	border-radius: 7px;
+	transition: scale 0.4s ease-in-out, filter 0.4s ease-in-out,
+		box-shadow 0.4s ease-in-out;
+	cursor: pointer;
+	box-shadow: 5px 5px 10px #555;
+}
+
+// on desktops brighter card filter when hover
+@media screen and (min-width: 1025px) {
+	.card {
+		filter: brightness(40%);
+		&:hover {
+			scale: 110%;
+			filter: brightness(100%);
+			box-shadow: 8px 8px 20px #555;
+		}
+	}
+}
