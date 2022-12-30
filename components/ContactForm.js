@@ -29,7 +29,7 @@ const ContactForm = () => {
 			return;
 		}
 
-		const response = await fetch(process.env.URL, {
+		const response = await fetch("https://mmwebapps.vercel.app/api/contact", {
 			method: "POST",
 			headers: {
 				Accept: "application/json, text/plain, */*",
