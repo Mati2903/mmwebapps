@@ -4,7 +4,7 @@ const HeaderImages = ({ imageUrl, position }) => {
 			className="header-image"
 			style={{
 				// rgb value should be the same as $navBgColor variable from variables.scss
-				background: `linear-gradient(rgb(240, 240, 240) 0%, rgba(0, 0, 0, 0.15)),
+				background: `linear-gradient(rgb(246, 248, 250) 0%, rgba(0, 0, 0, 0.15)),
   url(${imageUrl})`,
 				backgroundPosition: position ? position : "center",
 				backgroundRepeat: "no-repeat",
