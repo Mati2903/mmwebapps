@@ -3,3 +3,10 @@ $hamburgerIconColor: rgb(0, 103, 164);
 // $navBgColor: rgb(206, 206, 224);
 //kopiować to do komponentu SectionImage.js
 $navBgColor: rgb(246, 248, 250);
+$lightBlue: rgb(216, 219, 255);
+$backgroundColor: linear-gradient(
+	to right,
+	$lightBlue,
+	$navBgColor 50vw,
+	$lightBlue 100vw
+);
